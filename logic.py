@@ -189,6 +189,10 @@ WHERE project_name=? AND user_id=?
         """Удаляет проект.
 
         """
+        # Удаляем связанные навыки проекта
+        self.delete_project_skills(project_id)
+        
+        # Удаляем проект
         sql = "DELETE FROM projects WHERE user_id = ? AND project_id = ? "
         self.__executemany(sql, [(user_id, project_id)])
 
@@ -204,7 +208,7 @@ WHERE project_name=? AND user_id=?
 
         """
         sql = """DELETE FROM project_skills  WHERE project_id = ? AND skill_id = ?"""
-        self.__execute(sql, (project_id, skill_id))
+        self.__executemany(sql, [(project_id, skill_id)])
 
     def delete_project_skills(self, project_id):
         """Удаляет все навыки проекта.
@@ -212,7 +216,7 @@ WHERE project_name=? AND user_id=?
         """
         sql = """DELETE FROM project_skills
                 WHERE project_id = ?"""
-        self.__execute(sql, (project_id,))
+        self.__executemany(sql, [(project_id,)])
 
 if __name__ == '__main__':
     manager = DB_Manager(DATABASE)
