@@ -5,7 +5,7 @@
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Telegram](https://img.shields.io/badge/Telegram-Bot-blue.svg)
 ![SQLite](https://img.shields.io/badge/SQLite-Database-green.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 
 **Умный телеграм-бот для управления вашим портфолио проектов**  
 *Храните, организуйте и делитесь своими проектами в одном месте!*
